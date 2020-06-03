@@ -43,15 +43,7 @@ parser.add_argument(
     "ranges_file", help="File with range. Format is `title:start0-end0,...,startk-endk`"
 )
 parser.add_argument("pdf_file", help="The pdf file")
-
-def extract_work_packet(range_file: str) -> Iterator[WorkPacket]:
-    with open(range_file, "r") as f:
-        for line in f:
-            title, str_ranges = map(str.strip, line.split(":"))
-            ranges_list = map(str_to_range, (str_ranges.split(",")))
-            yield (WorkPacket(title, ranges_list))
-
-
+es_list))
 def main():
     args = parser.parse_args()
     assert args.pdf_file.split(".")[-1] == "pdf"
